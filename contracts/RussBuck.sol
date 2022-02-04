@@ -32,7 +32,8 @@ contract RussBuck is ERC20 {
         hasEnoughFunds(amount)
         returns (bool)
     {
-        payable(msg.sender).transfer(amount);
+        payable(msg.sender).transfer(amount / 100);
+        _burn(msg.sender, amount);
         return true;
     }
 }
